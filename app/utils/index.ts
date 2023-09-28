@@ -1,4 +1,4 @@
-import { DataType, MakeType, ModelType } from "../interfaces";
+import { DataType, MakeType, ModelType, VariationType } from "../interfaces";
 
 const MODELS: any = {
    'ford': {
@@ -16,6 +16,8 @@ const MODELS: any = {
    },
 }
 
+export const VARIATIONS: VariationType[] = []
+
 export const getData = () =>
 {
    const keys = Object.keys( MODELS )
@@ -26,18 +28,30 @@ export const getData = () =>
       const holdData: MakeType[] = []
 
       const make = key
-      const models = Object.keys( MODELS[key] )
+      const models: string[] = Object.keys( MODELS[key] )
       const badges = Object.values( MODELS[key] )
 
       const holdModels: ModelType[] = []
       models.forEach( ( model, index ) =>
       {
-         const badge = badges[index]
+         const badge: string[] = ( badges[index] as string[] )
 
          const tempData: any = {
             model,
             badges: badge,
          }
+
+         badge.forEach( ( bdg: string ) =>
+         {
+            const variation = {
+               name: `${key.toUpperCase()} ${model} ${bdg}`,
+               car: key,
+               model,
+               badge: bdg
+            }
+
+            VARIATIONS.push( variation )
+         } );
 
          holdModels.push( tempData )
       } );
@@ -72,10 +86,19 @@ export const getModelByCarName = ( car: string ) =>
 export const getBadgeByModelName = ( car: string, model: string ) =>
 {
    const { filterCars } = getModelByCarName( car )
-   const filterModels = filterCars?.modelList.filter( ( car ) => car.model === model )
+   const badges = filterCars?.modelList.find( ( car ) => car.model === model )
 
-   const badgeList = filterModels?.map( ( { badges } ) => badges )
-
-   return badgeList
+   return badges
 }
 
+export const remapData = ( array: any ) =>
+{
+   const newArray = Array.from( array, ( data: string ) =>
+   {
+      return {
+         label: `${data}`.toUpperCase(),
+         value: data,
+      }
+   } )
+   return [...newArray]
+}
