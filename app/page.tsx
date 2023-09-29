@@ -5,17 +5,10 @@ import SelectionInput from "./components/SelectionInput";
 import { VARIATIONS, getAllCars, getBadgeByModelName, getData, getModelByCarName, remapData, useSessionStorage } from "./utils";
 import { FieldType, SelectOptionType, VariationType } from './interfaces';
 import { useRouter } from 'next/navigation';
-
-
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
-// import required modules
 import ArrowUp from './icons/ArrowUp';
 
 const DEFAULT_VALUE: SelectOptionType = {
