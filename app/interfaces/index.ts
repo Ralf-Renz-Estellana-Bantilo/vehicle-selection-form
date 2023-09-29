@@ -29,11 +29,6 @@ export type DataType = {
 
 export type FieldType = 'car' | 'model' | 'badge'
 
-export type OptionType = {
-   field: FieldType;
-   items: string[];
-}
-
 export type VariationType = {
    name: string;
    car: string;
