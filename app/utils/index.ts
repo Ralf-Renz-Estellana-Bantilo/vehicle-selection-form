@@ -75,10 +75,8 @@ export const getAllCars = () =>
 
 export const getModelByCarName = ( car: string ) =>
 {
-   const filterCars = getData().find( ( data ) => data.make === car )
-
+   const filterCars = getData().find( ( { make } ) => make === car )
    const modelList = filterCars?.modelList.map( ( { model } ) => model )
-
 
    return { modelList, filterCars }
 }
@@ -100,5 +98,31 @@ export const remapData = ( array: any ) =>
          value: data,
       }
    } )
+
+   newArray.unshift( {
+      label: "",
+      value: "",
+   } )
    return [...newArray]
+}
+
+export const useSessionStorage = () =>
+{
+
+   const setSession = ( key: string, value: any ): any =>
+   {
+      sessionStorage.setItem( key, value )
+   }
+
+   const getSession = ( key: string ) =>
+   {
+      return sessionStorage.getItem( key )
+   }
+
+   const removeSession = ( key: string ) =>
+   {
+      sessionStorage.removeItem( key )
+   }
+
+   return { setSession, getSession, removeSession }
 }

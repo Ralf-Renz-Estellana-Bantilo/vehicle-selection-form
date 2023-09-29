@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { memo } from 'react'
 import { Select, SelectItem } from "@nextui-org/react";
 import { SelectOptionType, SelectionInputType } from '../interfaces';
 
@@ -9,8 +9,8 @@ const SelectionInput = ( { className, placeholder, options, value, handleChange,
    return (
       <Select
          label={`${placeholder}`}
-         className={className}
-         value={value}
+         className={`${className}`}
+         selectedKeys={[value]}
          isDisabled={disabled}
          onChange={( e ) => handleChange( e.target.value )}
       >
@@ -23,4 +23,4 @@ const SelectionInput = ( { className, placeholder, options, value, handleChange,
    )
 }
 
-export default SelectionInput
+export default memo( SelectionInput )

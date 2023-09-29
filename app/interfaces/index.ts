@@ -40,3 +40,10 @@ export type VariationType = {
    model: string;
    badge: string;
 }
+
+export type SessionDataType = {
+   car: string,
+   model: string,
+   badge: string,
+   logs: string,
+}
