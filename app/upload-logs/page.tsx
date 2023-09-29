@@ -25,7 +25,7 @@ const page = () =>
          <Button color="primary" variant="ghost" className='absolute top-2 left-2' onClick={() => router.push( '/' )}>
             Back
          </Button>
-         <div className="flex flex-col gap-4 min-w-[350px] w-[50%]">
+         <div className="flex flex-col gap-4 min-w-[350px] w-[40%]">
             <div className="flex flex-col gap-2 bg-gray-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-2 border-border-color p-3">
                <h3 className="text-center font-bold text-accent-primary text-xl">SELECTED VEHICLE</h3>
                <div className="flex flex-col gap-1">

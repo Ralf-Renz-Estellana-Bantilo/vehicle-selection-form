@@ -147,7 +147,7 @@ export default function Home ()
 
   return (
     <main className="flex min-h-screen flex-col gap-3 items-center justify-center gradient-background">
-      <div className="flex flex-col gap-4 min-w-[350px] w-[50%]">
+      <div className="flex flex-col gap-4 min-w-[350px] w-[40%]">
         <div className="flex flex-col gap-2 bg-gray-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-2 border-border-color p-3">
           <h3 className="text-center font-bold text-accent-primary text-xl">DRILL DOWN FORM</h3>
           <div className="flex flex-col gap-2">
@@ -170,7 +170,7 @@ export default function Home ()
           </Button>
         </div>
       </div>
-      <div className="flex flex-col gap-3 min-w-[350px] w-[50%]">
+      <div className="flex flex-col gap-3 min-w-[350px] w-[40%]">
         <div className="flex flex-col gap-4 bg-gray-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-2 border-border-color p-3">
           <div className="flex items-center justify-center">
             <h3 className="text-center font-bold text-accent-primary text-xl">SELECT A VEHICLE</h3>
